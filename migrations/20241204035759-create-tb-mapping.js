@@ -2,18 +2,15 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('tb_geos', {
+    await queryInterface.createTable('tb_mappings', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nama_geo: {
-        type: Sequelize.INTEGER
-      },
-      permalink: {
-        type: Sequelize.INTEGER
+      placeholder: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -26,6 +23,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('tb_geos');
+    await queryInterface.dropTable('tb_mappings');
   }
 };

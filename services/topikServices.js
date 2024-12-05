@@ -17,4 +17,19 @@ module.exports = {
       return error;
     }
   },
+  getAllTopik: async () => {
+    try {
+      const data = await db.tb_topik.findAll();
+      if (data.length === 0) {
+        return {
+          isError: true,
+          status: 404,
+          message: "No Topik Found",
+        };
+      }
+      return { message: "Success Get All Topik", data };
+    } catch (error) {
+      return { isError: true, message: error.message };
+    }
+  },
 };

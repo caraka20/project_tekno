@@ -2,16 +2,14 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class tb_topik extends Model {
-    static associate({ tb_industri, tb_geo, tb_posisi }) {
-      this.belongsTo(tb_industri, { foreignKey: "id_industri" });
-      this.belongsTo(tb_geo, { foreignKey: "id_geo" });
-      this.belongsTo(tb_posisi, { foreignKey: "id_posisi" });
+    static associate({ tb_mapping }) {
+      this.hasMany(tb_mapping, { foreignKey: "id_topik", as: "mappings" });
     }
   }
   tb_topik.init(
     {
-      topik: DataTypes.INTEGER,
-      permalink: DataTypes.INTEGER,
+      topik: DataTypes.STRING,
+      permalink: DataTypes.STRING,
       createdAt: {
         type: DataTypes.DATE,
         defaultValue: new Date(),

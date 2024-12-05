@@ -11,4 +11,11 @@ module.exports = {
       next(error);
     }
   },
+  getAllTopik: async (req, res) => {
+    const result = await topikServices.getAllTopik();
+    if (result.isError) {
+      return res.status(result.status || 500).json(result);
+    }
+    respHandler({ res, ...result });
+  },
 };

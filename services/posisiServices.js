@@ -12,9 +12,11 @@ module.exports = {
           message: "Posisi Not Found",
         };
       }
-      return { message: "Succes Get Posisi By Permalink", data };
+      return { message: "Success Get Posisi By Permalink", data };
     } catch (error) {
-      return error;
+      return { isError: true, message: error.message };
     }
   },
+
+
 };

@@ -10,10 +10,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       topik: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       permalink: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

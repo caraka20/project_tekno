@@ -5,11 +5,12 @@ app.use(cors());
 app.use(express.json());
 
 // router
-const { industriRoute, geoRoute, posisiRoute, topikRoute } = require("./routers");
-app.use("/industri", industriRoute);
-app.use("/geo", geoRoute);
-app.use("/posisi", posisiRoute);
-app.use("/topik", topikRoute);
+const { industriRoute, geoRoute, posisiRoute, topikRoute, mappingRoute } = require("./routers");
+app.use("/api/industri", industriRoute);
+app.use("/api/geo", geoRoute);
+app.use("/api/posisi", posisiRoute);
+app.use("/api/topik", topikRoute);
+app.use("/api/mapping", mappingRoute);
 
 app.use((err, req, res, next) => {
   const statusCode = err.status || 500;
