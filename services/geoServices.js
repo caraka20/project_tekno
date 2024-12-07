@@ -4,7 +4,6 @@ module.exports = {
   getByPermalink: async (permalink) => {
     try {
       const data = await db.tb_geo.findOne({ where: { permalink } });
-      console.log(data);
       if (data === null) {
         return {
           isError: true,

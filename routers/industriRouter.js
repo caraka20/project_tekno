@@ -1,9 +1,6 @@
 const router = require("express").Router();
 const { industriController } = require("../controllers/index");
+const { apiKey } = require("../middleware/apiKey");
 
-// router.post("/", provinsiController.createProvinsi);
-router.get("/:permalink", industriController.getByPermalink);
-// router.put("/:id", provinsiController.updateProvinsi);
-// router.delete("/:id", provinsiController.deleteProvinsi);
-
+router.get("/:permalink", apiKey, industriController.getByPermalink);
 module.exports = router;
